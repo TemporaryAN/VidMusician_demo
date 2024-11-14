@@ -1,2 +1,2 @@
-# VidComposer
-samples of VidComposer
+# VidMusician
+Samples of VidMusic
