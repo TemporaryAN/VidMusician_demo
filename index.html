@@ -94,7 +94,8 @@
             margin-bottom: 10px;
         }
         .sub-title {
-            text-align: center;
+            text-align: left;
+            margin-left: 20px;
             font-size: 1.2em;
             color: gray;
         }
@@ -102,8 +103,9 @@
 </head>
 <body>
 <div class="main-title">VidMusician: Video-to-Music Generation with Semantic-Rhythmic Alignment via Hierarchical Visual Features</div>
+<div class="sub-title">It may take some time for all the videos to load on the page. We have ensured that the videos are functioning and can be played properly.</div>
 <div class="intro">
-    <p>This page is divided into two sections: Comparison with Other Methods and Results of Our Method on AI-Generated Videos.</p>
+    <p>This page is divided into three sections: Comparison with Other Methods, Results of Our Method on AI-Generated Videos and Results of Our Method on Long Videos Using a Sliding Window.</p>
 
 </div>
 <p style="margin-left: 20px;">For the first section, you can click the buttons below to jump to different groups. DVMSet suffix represents training the model with our Dataset. </p>
@@ -132,6 +134,11 @@
 <p style="margin-left: 20px;">For the second section, you can click the button below to jump to it.</p>
 <div class="nav-buttons">
     <a href="#ai-results">Results of Our Method on AI-Generated Videos</a>
+</div>
+
+<p style="margin-left: 20px;">For the third section, you can click the button below to jump to it.</p>
+<div class="nav-buttons">
+    <a href="#ai-results">Results of Our Method on Long Videos Using a Sliding Window</a>
 </div>
 
 
@@ -1500,6 +1507,37 @@
                 <div class="video-container">
             <video controls>
                 <source src="./samples/AI/aquarium_nyc.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+    <div class="video-row">
+    </div>
+</div>
+<div id="ai-results" class="section-title">3. Results of Our Method on Long Videos Using a Sliding Window</div>
+<div class="video-group">
+    <div class="video-row">
+                <div class="video-container">
+            <video controls>
+                <source src="./samples/Long_videos/1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+                <div class="video-container">
+            <video controls>
+                <source src="./samples/Long_videos/0.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+                <div class="video-container">
+            <video controls>
+                <source src="./samples/Long_videos/2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+                <div class="video-container">
+            <video controls>
+                <source src="./samples/Long_videos/3.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
