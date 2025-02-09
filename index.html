@@ -4,302 +4,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VidMusician Demo</title>
+    <title>VidMusician - Video-to-Music Generation</title>
     <style>
-        .video-group {
-            margin-bottom: 10px;
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #3b82f6;
+            --accent-color: #10b981;
+            --dark-bg: #0F172A;
+            --light-bg: #1E293B;
+            --text-primary: #F8FAFC;
         }
-        .video-row {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
         }
-        .video-container {
-            width: 14%;
-            margin-bottom: 5px;
-        }
-        .video-container video {
-            width: 100%;
-            height: auto;
-        }
-        .folder-name {
-            text-align: center;
-            font-size: 1em;
-            margin-bottom: 5px;
-        }
-        .empty-slot {
-            width: 14%;
-            margin-bottom: 5px;
-        }
-        .section-title {
-            font-size: 1.4em;
-            font-weight: bold;
-            margin-top: 20px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .note {
-            font-size: 1.2em;
-            color: gray;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .nav-buttons {
-            text-align: left;
-            width: 40%;
-            margin-bottom: 20px;
-            margin-left: 20px;
-        }
-        .nav-buttons a {
-            display: block;
-            margin: 10px 0;
-            text-decoration: none;
-            font-size: 1.1em;
-            color: #000;
-            padding: 10px;
-            background-color: #F1F9F4;
-            border-radius: 5px;
-        }
-        .nav-buttons a:hover {
-            background-color: #F1F9F4;
-        }
-        .intro {
-            text-align: left;
-            margin: 20px;
-            font-size: 1.2em;
-        }
-        .group-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: left;
-            margin-bottom: 20px;
-            margin-left:20px;
-        }
-        .group-buttons a {
-            margin: 5px;
-            padding: 10px 15px;
-            text-decoration: none;
-            font-size: 1em;
-            color: black;
-            background-color: #F1F9F4;
-            border: none;
-            border-radius: 5px;
-        }
-        .group-buttons a:hover {
-            background-color: #F1F9F4;
-        }
+
         .main-title {
             text-align: center;
-            font-size: 2em;
-            font-weight: bold;
-            margin-bottom: 10px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 2rem 0 1rem;
+            background: linear-gradient(45deg, #3b82f6, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
+
         .sub-title {
-            text-align: left;
-            margin-left: 20px;
-            font-size: 1.2em;
-            color: gray;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #94a3b8;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            padding: 0 1rem;
         }
+
+        .nav-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 0 auto 0 auto; 
+            padding: 0 1rem;
+        }
+
+        .nav-buttons a {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-buttons a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 3rem 0 1.5rem;
+            padding: 1rem 0;
+            border-bottom: 2px solid var(--light-bg);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+
+        .video-group {
+            /* max-width: 1400px; */
+            margin: 0 auto 3rem;
+            padding: 0 1rem;
+        }
+
+        .video-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .video-container {
+            background: var(--light-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-container:hover {
+            transform: translateY(-5px);
+        }
+
+        .folder-name {
+            padding: 0.8rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.05);
+            text-align: center;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px 12px 0 0;
+        }
+
         .large-video-container {
-            display: flex;
-            align-items: bottom; /* 垂直居中 */
-            width: 20%;
-            margin: 0 auto; /* 水平居中 */
+            max-width: 800px;
+            margin: 0 auto;
         }
-        .large-video-container video {
-            width: 100%;
-            height: auto;
+
+        .note {
+            color: #94a3b8;
+            text-align: center;
+            margin: 1rem 0;
+            font-style: italic;
         }
-        .small-video-container {
-            width: 12%;  /* Adjusted width to fit 8 videos with some spacing */
-            margin-bottom: 5px;  /* Add horizontal margin for spacing */
-        }
-        .small-video-container video {
-            width: 100%;
-            height: auto;
-        }
-        .centered-video-row {
-            justify-content: center;
+
+        @media (max-width: 768px) {
+            .video-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .main-title {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-<div class="main-title">VidMusician: Video-to-Music Generation with Semantic-Rhythmic Alignment via Hierarchical Visual Features</div>
-<div class="sub-title">PS: It may take some time for all the videos to load on the page. We have ensured that the videos are functioning and can be played properly.</div>
-<div class="intro">
-    <p>This page is divided into five sections, click the buttons below to jump to different sections.  </p>
-</div>
+    <div class="main-title">VidMusician: Video-to-Music Generation</div>
+    <div class="sub-title">
+        Semantic-Rhythmic Alignment via Hierarchical Visual Features<br>
+        <!-- PS: Videos may take a moment to load. All content is verified playable.<br> -->
+        PS: Our demo is divided into five sections, and the navigation buttons are below.
+    </div>
+    <!-- <div class="sub-title">
+        Navigation buttons for the five sections of our demo.
+    </div> -->
+    <!-- <p style="text-align: center; margin-bottom: 0;">Navigation buttons for the five sections of our demo</p> -->
+    <nav class="nav-buttons">
+        <a href="#compare">Comparison</a>
+        <a href="#more_samples">More Samples</a>
+        <a href="#ai-results">AI-Generated Results</a>
+        <a href="#long-videos">Long Video Results</a>
+        <a href="#ablation">Ablation Study</a>
+    </nav>
 
-</div>
-<div class="nav-buttons">
-    <a href="#ablation">Ablation Study</a>
-</div>
-<div class="nav-buttons">
-    <a href="#ai-results">Results of Our Method on AI-Generated Videos</a>
-</div>
-<div class="nav-buttons">
-    <a href="#long-videos">Results of Our Method on Long Videos Using a Sliding Window</a>
-</div>
-<div class="nav-buttons">
-    <a href="#more_samples">More Samples of Our Method</a>
-</div>
 <div id="compare" class="section-title">1. Comparison with Other Methods</div>
 <div id="group_1" class="video-group">
     <div class="video-row">
         <div class="folder-name" style="font-weight: bold; font-size: 20px;">Dataset: DVMSet</div>
-        <div class="folder-name" style="color: blue; font-size: 18px; text-align: left;">The following three groups of videos have frequent transitions, requiring precise rhythm alignment. Our results show accent alignment with transitions, enhancing impact and demonstrating rhythm alignment capability of our method.</div>
     </div>
     <div class="video-row">
-        <div class="video-container">
-            <div class="folder-name">Ground_truth</div>
-            <video controls>
-                <source src="./samples/Ground_truth/2156ab88a5fa46bf5edc044e70cf3b47.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="video-container">
-            <div class="folder-name">CMT</div>
-            <video controls>
-                <source src="./samples/CMT/2156ab88a5fa46bf5edc044e70cf3b47.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="video-container">
-            <div class="folder-name">Diff-BGM</div>
-            <video controls>
-                <source src="./samples/Diff-BGM/2156ab88a5fa46bf5edc044e70cf3b47.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="video-container">
-            <div class="folder-name">Video2Music</div>
-            <video controls>
-                <source src="./samples/Video2Music/2156ab88a5fa46bf5edc044e70cf3b47.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="video-container">
-            <div class="folder-name">M2UGen</div>
-            <video controls>
-                <source src="./samples/M2UGen/2156ab88a5fa46bf5edc044e70cf3b47.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="video-container">
-            <div class="folder-name">VidMuse</div>
-            <video controls>
-                <source src="./samples/VidMuse/2156ab88a5fa46bf5edc044e70cf3b47.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="video-container">
-            <div class="folder-name">Ours</div>
-            <video controls>
-                <source src="./samples/Ours/2156ab88a5fa46bf5edc044e70cf3b47.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </div>
-</div>
-<div id="group_2" class="video-group">
-    <div class="video-row">
-    </div>
-    <div class="video-row">
-        <div class="video-container">
-            <video controls>
-                <source src="./samples/Ground_truth/16629bdad6753d4e917af0b6b87bedb4.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="video-container">
-            <video controls>
-                <source src="./samples/CMT/16629bdad6753d4e917af0b6b87bedb4.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="video-container">
-            <video controls>
-                <source src="./samples/Diff-BGM/16629bdad6753d4e917af0b6b87bedb4.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="video-container">
-            <video controls>
-                <source src="./samples/Video2Music/16629bdad6753d4e917af0b6b87bedb4.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="video-container">
-            <video controls>
-                <source src="./samples/M2UGen/16629bdad6753d4e917af0b6b87bedb4.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="video-container">
-            <video controls>
-                <source src="./samples/VidMuse/16629bdad6753d4e917af0b6b87bedb4.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="video-container">
-            <video controls>
-                <source src="./samples/Ours/16629bdad6753d4e917af0b6b87bedb4.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </div>
-</div>
-<div id="group_3" class="video-group">
-    <div class="video-row">
-    </div>
-    <div class="video-row">
-        <div class="video-container">
-            <video controls>
-                <source src="./samples/Ground_truth/385dba274af8030b1323bc08de6ddd04.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="video-container">
-            <video controls>
-                <source src="./samples/CMT/385dba274af8030b1323bc08de6ddd04.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="video-container">
-            <video controls>
-                <source src="./samples/Diff-BGM/385dba274af8030b1323bc08de6ddd04.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="video-container">
-            <video controls>
-                <source src="./samples/Video2Music/385dba274af8030b1323bc08de6ddd04.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="video-container">
-            <video controls>
-                <source src="./samples/M2UGen/385dba274af8030b1323bc08de6ddd04.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="video-container">
-            <video controls>
-                <source src="./samples/VidMuse/385dba274af8030b1323bc08de6ddd04.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="video-container">
-            <video controls>
-                <source src="./samples/Ours/385dba274af8030b1323bc08de6ddd04.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </div>
-</div>
-<div id="group_4" class="video-group">
-    <div class="video-row">
-        <div class="folder-name" style="color: blue; font-size: 18px; text-align: left;">The results for the following two narrative videos show our generated music dynamically evolving with the storyline while maintaining the integrity of core musical elements.</div>
+        <div class="folder-name" style="color: rgb(110, 208, 243); font-size: 18px; text-align: left;">The results for the following two narrative videos show our generated music dynamically evolving with the storyline while maintaining the integrity of core musical elements.</div>
     </div>
     <div class="video-row">
         <div class="video-container">
@@ -353,7 +230,7 @@
         </div>
     </div>
 </div>
-<div id="group_5" class="video-group">
+<div id="group_2" class="video-group">
     <div class="video-row">
     </div>
     <div class="video-row">
@@ -396,6 +273,158 @@
         <div class="video-container">
             <video controls>
                 <source src="./samples/Ours/818437a9c748f7df125b40c10f603bf5.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+</div>
+<div id="group_3" class="video-group">
+    <div class="video-row">
+        <div class="folder-name" style="color: rgb(110, 208, 243); font-size: 18px; text-align: left;">The following three groups of videos have frequent transitions, requiring precise rhythm alignment. Our results show accent alignment with transitions, enhancing impact and demonstrating rhythm alignment capability of our method.</div>
+    </div>
+    <div class="video-row">
+        <div class="video-container">
+            <div class="folder-name">Ground_truth</div>
+            <video controls>
+                <source src="./samples/Ground_truth/16629bdad6753d4e917af0b6b87bedb4.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <div class="folder-name">CMT</div>
+            <video controls>
+                <source src="./samples/CMT/16629bdad6753d4e917af0b6b87bedb4.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <div class="folder-name">Diff-BGM</div>
+            <video controls>
+                <source src="./samples/Diff-BGM/16629bdad6753d4e917af0b6b87bedb4.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <div class="folder-name">Video2Music</div>
+            <video controls>
+                <source src="./samples/Video2Music/16629bdad6753d4e917af0b6b87bedb4.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <div class="folder-name">M2UGen</div>
+            <video controls>
+                <source src="./samples/M2UGen/16629bdad6753d4e917af0b6b87bedb4.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <div class="folder-name">VidMuse</div>
+            <video controls>
+                <source src="./samples/VidMuse/16629bdad6753d4e917af0b6b87bedb4.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <div class="folder-name">Ours</div>
+            <video controls>
+                <source src="./samples/Ours/16629bdad6753d4e917af0b6b87bedb4.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+</div>
+<div id="group_4" class="video-group">
+    <div class="video-row">
+    </div>
+    <div class="video-row">
+        <div class="video-container">
+            <video controls>
+                <source src="./samples/Ground_truth/2156ab88a5fa46bf5edc044e70cf3b47.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <video controls>
+                <source src="./samples/CMT/2156ab88a5fa46bf5edc044e70cf3b47.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <video controls>
+                <source src="./samples/Diff-BGM/2156ab88a5fa46bf5edc044e70cf3b47.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <video controls>
+                <source src="./samples/Video2Music/2156ab88a5fa46bf5edc044e70cf3b47.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <video controls>
+                <source src="./samples/M2UGen/2156ab88a5fa46bf5edc044e70cf3b47.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <video controls>
+                <source src="./samples/VidMuse/2156ab88a5fa46bf5edc044e70cf3b47.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <video controls>
+                <source src="./samples/Ours/2156ab88a5fa46bf5edc044e70cf3b47.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+</div>
+<div id="group_5" class="video-group">
+    <div class="video-row">
+    </div>
+    <div class="video-row">
+        <div class="video-container">
+            <video controls>
+                <source src="./samples/Ground_truth/385dba274af8030b1323bc08de6ddd04.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <video controls>
+                <source src="./samples/CMT/385dba274af8030b1323bc08de6ddd04.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <video controls>
+                <source src="./samples/Diff-BGM/385dba274af8030b1323bc08de6ddd04.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <video controls>
+                <source src="./samples/Video2Music/385dba274af8030b1323bc08de6ddd04.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <video controls>
+                <source src="./samples/M2UGen/385dba274af8030b1323bc08de6ddd04.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <video controls>
+                <source src="./samples/VidMuse/385dba274af8030b1323bc08de6ddd04.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <video controls>
+                <source src="./samples/Ours/385dba274af8030b1323bc08de6ddd04.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
@@ -457,10 +486,79 @@
         </div>
     </div>
 </div>
-<div id="ablation" class="section-title">2. Ablation Study</div>
+<div id="more_samples" class="section-title">2. More Samples of Our Method</div>
 <div class="video-group">
     <div class="video-row">
-        <div class="folder-name" style="color: blue; font-size: 18px; text-align: left;">The order of the videos is consistent with Table 3.</div>
+        <div class="large-video-container" style="align-items: bottom; display: flex;">
+            <video controls>
+                <source src="samples/Ours/f71d92f392d03ca1143475a5724339bd.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="large-video-container" style="align-items: bottom; display: flex;">
+            <video controls>
+                <source src="samples/Ours/b276f3d45f38b5eeb20d091f12215fa4.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="large-video-container" style="align-items: bottom; display: flex;">
+            <video controls>
+                <source src="samples/Ours/486afb5398baed2644e3a98b041f88fd.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="large-video-container" style="align-items: bottom; display: flex;">
+            <video controls>
+                <source src="samples/Ours/31a7278e9420cd59c13451e5fbf616f9.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+</div>
+<div id="ai-results" class="section-title">3. Results of Our Method on AI-Generated Videos</div>
+<div class="video-group">
+    <div class="video-row centered-video-row">
+        <div class="large-video-container">
+            <video controls>
+                <source src="./samples/AI/stack_of_tvs.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="large-video-container">
+            <video controls>
+                <source src="./samples/AI/zen_garden_gnome.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="large-video-container">
+            <video controls>
+                <source src="./samples/AI/Rabbit_dance.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="large-video-container">
+            <video controls>
+                <source src="./samples/AI/santorini.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+</div>
+<div id="long-videos" class="section-title">4. Result of Our Method on Long Videos Using a Sliding Window</div>
+<div class="video-group">
+    <div class="video-row centered-video-row">
+        <div class="large-video-container">
+            <video controls>
+                <source src="./samples/Long_videos/0.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+</div>
+<div id="ablation" class="section-title">5. Ablation Study</div>
+<div class="video-group">
+    <div class="video-row">
+        <div class="folder-name" style="color: rgb(110, 208, 243); font-size: 18px; text-align: left;">The order of the videos is consistent with Table 3 of main text.</div>
     </div>
     <div class="video-row">
         <div class="small-video-container">
@@ -521,75 +619,7 @@
         </div>
     </div>
 </div>
-<div id="ai-results" class="section-title">3. Results of Our Method on AI-Generated Videos</div>
-<div class="video-group">
-    <div class="video-row centered-video-row">
-        <div class="large-video-container">
-            <video controls>
-                <source src="./samples/AI/stack_of_tvs.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="large-video-container">
-            <video controls>
-                <source src="./samples/AI/zen_garden_gnome.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="large-video-container">
-            <video controls>
-                <source src="./samples/AI/Rabbit_dance.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="large-video-container">
-            <video controls>
-                <source src="./samples/AI/santorini.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </div>
-</div>
-<div id="long-videos" class="section-title">4. Results of Our Method on Long Videos Using a Sliding Window</div>
-<div class="video-group">
-    <div class="video-row centered-video-row">
-        <div class="large-video-container">
-            <video controls>
-                <source src="./samples/Long_videos/0.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </div>
-</div>
-<div id="more_samples" class="section-title">5. More Samples of Our Method</div>
-<div class="video-group">
-    <div class="video-row">
-        <div class="large-video-container">
-            <video controls>
-                <source src="samples/Ours/f71d92f392d03ca1143475a5724339bd.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="large-video-container">
-            <video controls>
-                <source src="samples/Ours/b276f3d45f38b5eeb20d091f12215fa4.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="large-video-container">
-            <video controls>
-                <source src="samples/Ours/486afb5398baed2644e3a98b041f88fd.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="large-video-container">
-            <video controls>
-                <source src="samples/Ours/31a7278e9420cd59c13451e5fbf616f9.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </div>
-</div>
+
 
 </body>
 </html>
