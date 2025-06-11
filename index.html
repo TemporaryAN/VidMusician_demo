@@ -45,7 +45,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1rem;
-            max-width: 1200px;
+            max-width: 1500px;
             margin: 0 auto 0 auto; 
             padding: 0 1rem;
         }
@@ -132,7 +132,10 @@
             max-width: 800px;
             margin: 0 auto;
         }
-
+        .middle-video-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
         .note {
             color: #94a3b8;
             text-align: center;
@@ -168,6 +171,7 @@
         <a href="#ai-results">AI-Generated Results</a>
         <a href="#long-videos">Long Video Results</a>
         <a href="#ablation">Ablation Study</a>
+        <a href="#ablation">Bad Cases</a>
     </nav>
 
 <div id="compare" class="section-title">1. Comparison with Other Methods</div>
@@ -176,7 +180,7 @@
         <div class="folder-name" style="font-weight: bold; font-size: 20px;">Dataset: DVMSet</div>
     </div>
     <div class="video-row">
-        <div class="folder-name" style="color: rgb(110, 208, 243); font-size: 18px; text-align: left;">The results for the following two narrative videos show that our generated music dynamically evolves with the storyline while maintaining the integrity of core musical elements.</div>
+        <div class="folder-name" style="color: rgb(110, 208, 243); font-size: 18px; text-align: left;">The results for the following two narrative videos show that our generated music dynamically evolves with the storyline while maintaining the integrity of core musical elements. DVMSet suffix represents training the model with our Dataset.</div>
     </div>
     <div class="video-row">
         <div class="video-container">
@@ -207,6 +211,7 @@
                 Your browser does not support the video tag.
             </video>
         </div>
+
         <div class="video-container">
             <div class="folder-name">M2UGen</div>
             <video controls>
@@ -215,9 +220,46 @@
             </video>
         </div>
         <div class="video-container">
+            <div class="folder-name">M2UGen_DVMSet</div>
+            <video controls>
+                <source src="./samples/M2UGen_train/e4c9fb1e93bd64ca2f987e0d33a5fb62.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+    <div class="video-row">
+        <div class="video-container">
+            <!-- <div class="folder-name">Ours</div>
+            <video controls>
+                <source src="./samples/Ours/e4c9fb1e93bd64ca2f987e0d33a5fb62.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video> -->
+        </div>
+        <div class="video-container">
             <div class="folder-name">VidMuse</div>
             <video controls>
                 <source src="./samples/VidMuse/e4c9fb1e93bd64ca2f987e0d33a5fb62.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <div class="folder-name">VidMuse_DVMSet</div>
+            <video controls>
+                <source src="./samples/VidMuse_train/e4c9fb1e93bd64ca2f987e0d33a5fb62.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <div class="folder-name">GVMGen</div>
+            <video controls>
+                <source src="./samples/GVMGen/e4c9fb1e93bd64ca2f987e0d33a5fb62.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <div class="folder-name">GVMGen_DVMSet</div>
+            <video controls>
+                <source src="./samples/GVMGen_train/e4c9fb1e93bd64ca2f987e0d33a5fb62.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
@@ -228,61 +270,106 @@
                 Your browser does not support the video tag.
             </video>
         </div>
+
     </div>
 </div>
 <div id="group_2" class="video-group">
     <div class="video-row">
-    </div>
-    <div class="video-row">
         <div class="video-container">
+            <div class="folder-name">Ground_truth</div>
             <video controls>
                 <source src="./samples/Ground_truth/818437a9c748f7df125b40c10f603bf5.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
         <div class="video-container">
+            <div class="folder-name">CMT</div>
             <video controls>
                 <source src="./samples/CMT/818437a9c748f7df125b40c10f603bf5.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
         <div class="video-container">
+            <div class="folder-name">Diff-BGM</div>
             <video controls>
                 <source src="./samples/Diff-BGM/818437a9c748f7df125b40c10f603bf5.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
         <div class="video-container">
+            <div class="folder-name">Video2Music</div>
             <video controls>
                 <source src="./samples/Video2Music/818437a9c748f7df125b40c10f603bf5.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
+
         <div class="video-container">
+            <div class="folder-name">M2UGen</div>
             <video controls>
                 <source src="./samples/M2UGen/818437a9c748f7df125b40c10f603bf5.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
         <div class="video-container">
+            <div class="folder-name">M2UGen_DVMSet</div>
+            <video controls>
+                <source src="./samples/M2UGen_train/818437a9c748f7df125b40c10f603bf5.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+    <div class="video-row">
+        <div class="video-container">
+            <!-- <div class="folder-name">Ours</div>
+            <video controls>
+                <source src="./samples/Ours/818437a9c748f7df125b40c10f603bf5.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video> -->
+        </div>
+        <div class="video-container">
+            <div class="folder-name">VidMuse</div>
             <video controls>
                 <source src="./samples/VidMuse/818437a9c748f7df125b40c10f603bf5.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
         <div class="video-container">
+            <div class="folder-name">VidMuse_DVMSet</div>
+            <video controls>
+                <source src="./samples/VidMuse_train/818437a9c748f7df125b40c10f603bf5.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <div class="folder-name">GVMGen</div>
+            <video controls>
+                <source src="./samples/GVMGen/818437a9c748f7df125b40c10f603bf5.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <div class="folder-name">GVMGen_DVMSet</div>
+            <video controls>
+                <source src="./samples/GVMGen_train/818437a9c748f7df125b40c10f603bf5.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <div class="folder-name">Ours</div>
             <video controls>
                 <source src="./samples/Ours/818437a9c748f7df125b40c10f603bf5.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
+
     </div>
 </div>
 <div id="group_3" class="video-group">
     <div class="video-row">
-        <div class="folder-name" style="color: rgb(110, 208, 243); font-size: 18px; text-align: left;">The following three groups of videos feature frequent transitions, in which rhythm alignment is more perceptible. The alignment of accents with transitions in our results enhances the appeal, demonstrating the rhythm alignment capability of our method.</div>
+        <div class="folder-name" style="color: rgb(110, 208, 243); font-size: 18px; text-align: left;">The following three groups of videos feature frequent transitions, in which rhythm alignment is more perceptible. The alignment of accents with transitions in our results enhances the appeal, demonstrating the rhythm alignment capability of our method. DVMSet suffix represents training the model with our Dataset.</div>
     </div>
-    <div class="video-row">
+        <div class="video-row">
         <div class="video-container">
             <div class="folder-name">Ground_truth</div>
             <video controls>
@@ -311,6 +398,7 @@
                 Your browser does not support the video tag.
             </video>
         </div>
+
         <div class="video-container">
             <div class="folder-name">M2UGen</div>
             <video controls>
@@ -319,9 +407,46 @@
             </video>
         </div>
         <div class="video-container">
+            <div class="folder-name">M2UGen_DVMSet</div>
+            <video controls>
+                <source src="./samples/M2UGen_train/16629bdad6753d4e917af0b6b87bedb4.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+    <div class="video-row">
+        <div class="video-container">
+            <!-- <div class="folder-name">Ours</div>
+            <video controls>
+                <source src="./samples/Ours/16629bdad6753d4e917af0b6b87bedb4.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video> -->
+        </div>
+        <div class="video-container">
             <div class="folder-name">VidMuse</div>
             <video controls>
                 <source src="./samples/VidMuse/16629bdad6753d4e917af0b6b87bedb4.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <div class="folder-name">VidMuse_DVMSet</div>
+            <video controls>
+                <source src="./samples/VidMuse_train/16629bdad6753d4e917af0b6b87bedb4.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <div class="folder-name">GVMGen</div>
+            <video controls>
+                <source src="./samples/GVMGen/16629bdad6753d4e917af0b6b87bedb4.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <div class="folder-name">GVMGen_DVMSet</div>
+            <video controls>
+                <source src="./samples/GVMGen_train/16629bdad6753d4e917af0b6b87bedb4.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
@@ -332,6 +457,7 @@
                 Your browser does not support the video tag.
             </video>
         </div>
+
     </div>
 </div>
 <div id="group_4" class="video-group">
@@ -339,47 +465,94 @@
     </div>
     <div class="video-row">
         <div class="video-container">
+            <div class="folder-name">Ground_truth</div>
             <video controls>
                 <source src="./samples/Ground_truth/2156ab88a5fa46bf5edc044e70cf3b47.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
         <div class="video-container">
+            <div class="folder-name">CMT</div>
             <video controls>
                 <source src="./samples/CMT/2156ab88a5fa46bf5edc044e70cf3b47.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
         <div class="video-container">
+            <div class="folder-name">Diff-BGM</div>
             <video controls>
                 <source src="./samples/Diff-BGM/2156ab88a5fa46bf5edc044e70cf3b47.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
         <div class="video-container">
+            <div class="folder-name">Video2Music</div>
             <video controls>
                 <source src="./samples/Video2Music/2156ab88a5fa46bf5edc044e70cf3b47.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
+
         <div class="video-container">
+            <div class="folder-name">M2UGen</div>
             <video controls>
                 <source src="./samples/M2UGen/2156ab88a5fa46bf5edc044e70cf3b47.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
         <div class="video-container">
+            <div class="folder-name">M2UGen_DVMSet</div>
+            <video controls>
+                <source src="./samples/M2UGen_train/2156ab88a5fa46bf5edc044e70cf3b47.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+    <div class="video-row">
+        <div class="video-container">
+            <!-- <div class="folder-name">Ours</div>
+            <video controls>
+                <source src="./samples/Ours/2156ab88a5fa46bf5edc044e70cf3b47.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video> -->
+        </div>
+        <div class="video-container">
+            <div class="folder-name">VidMuse</div>
             <video controls>
                 <source src="./samples/VidMuse/2156ab88a5fa46bf5edc044e70cf3b47.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
         <div class="video-container">
+            <div class="folder-name">VidMuse_DVMSet</div>
+            <video controls>
+                <source src="./samples/VidMuse_train/2156ab88a5fa46bf5edc044e70cf3b47.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <div class="folder-name">GVMGen</div>
+            <video controls>
+                <source src="./samples/GVMGen/2156ab88a5fa46bf5edc044e70cf3b47.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <div class="folder-name">GVMGen_DVMSet</div>
+            <video controls>
+                <source src="./samples/GVMGen_train/2156ab88a5fa46bf5edc044e70cf3b47.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <div class="folder-name">Ours</div>
             <video controls>
                 <source src="./samples/Ours/2156ab88a5fa46bf5edc044e70cf3b47.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
+
+    </div>
     </div>
 </div>
 <div id="group_5" class="video-group">
@@ -387,47 +560,93 @@
     </div>
     <div class="video-row">
         <div class="video-container">
+            <div class="folder-name">Ground_truth</div>
             <video controls>
                 <source src="./samples/Ground_truth/385dba274af8030b1323bc08de6ddd04.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
         <div class="video-container">
+            <div class="folder-name">CMT</div>
             <video controls>
                 <source src="./samples/CMT/385dba274af8030b1323bc08de6ddd04.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
         <div class="video-container">
+            <div class="folder-name">Diff-BGM</div>
             <video controls>
                 <source src="./samples/Diff-BGM/385dba274af8030b1323bc08de6ddd04.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
         <div class="video-container">
+            <div class="folder-name">Video2Music</div>
             <video controls>
                 <source src="./samples/Video2Music/385dba274af8030b1323bc08de6ddd04.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
+
         <div class="video-container">
+            <div class="folder-name">M2UGen</div>
             <video controls>
                 <source src="./samples/M2UGen/385dba274af8030b1323bc08de6ddd04.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
         <div class="video-container">
+            <div class="folder-name">M2UGen_DVMSet</div>
+            <video controls>
+                <source src="./samples/M2UGen_train/385dba274af8030b1323bc08de6ddd04.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+    <div class="video-row">
+        <div class="video-container">
+            <!-- <div class="folder-name">Ours</div>
+            <video controls>
+                <source src="./samples/Ours/385dba274af8030b1323bc08de6ddd04.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video> -->
+        </div>
+        <div class="video-container">
+            <div class="folder-name">VidMuse</div>
             <video controls>
                 <source src="./samples/VidMuse/385dba274af8030b1323bc08de6ddd04.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
         <div class="video-container">
+            <div class="folder-name">VidMuse_DVMSet</div>
+            <video controls>
+                <source src="./samples/VidMuse_train/385dba274af8030b1323bc08de6ddd04.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <div class="folder-name">GVMGen</div>
+            <video controls>
+                <source src="./samples/GVMGen/385dba274af8030b1323bc08de6ddd04.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <div class="folder-name">GVMGen_DVMSet</div>
+            <video controls>
+                <source src="./samples/GVMGen_train/385dba274af8030b1323bc08de6ddd04.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <div class="folder-name">Ours</div>
             <video controls>
                 <source src="./samples/Ours/385dba274af8030b1323bc08de6ddd04.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
+
     </div>
 </div>
 <div id="group_6" class="video-group">
@@ -477,6 +696,13 @@
             <div class="folder-name">VidMuse</div>
             <video controls>
                 <source src="./samples/VidMuse/036.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <div class="folder-name">GVMGen</div>
+            <video controls>
+                <source src="./samples/GVMGen/036.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
@@ -553,7 +779,7 @@
 <div id="long-videos" class="section-title">4. Result of Our Method on Long Videos Using a Sliding Window</div>
 <div class="video-group">
     <div class="video-row centered-video-row">
-        <div class="large-video-container">
+        <div class="middle-video-container">
             <video controls>
                 <source src="./samples/Long_videos/0.mp4" type="video/mp4">
                 Your browser does not support the video tag.
@@ -568,56 +794,56 @@
     </div>
     <div class="video-row">
         <div class="small-video-container">
-            <div class="folder-name">Row1</div>
+            <div class="folder-name">Abl1</div>
             <video controls>
                 <source src="samples/Ours/4_ab_t5_scratch/c37bd37d8579fcb2d726aafb517349b7.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
         <div class="small-video-container">
-            <div class="folder-name">Row2</div>
+            <div class="folder-name">Abl2</div>
             <video controls>
                 <source src="samples/Ours/0_no_rhythm/c37bd37d8579fcb2d726aafb517349b7.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
         <div class="small-video-container">
-            <div class="folder-name">Row3</div>
+            <div class="folder-name">Abl3</div>
             <video controls>
                 <source src="samples/Ours/1_ab_no_initial/c37bd37d8579fcb2d726aafb517349b7.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
         <div class="small-video-container">
-            <div class="folder-name">Row4</div>
+            <div class="folder-name">Abl4</div>
             <video controls>
                 <source src="samples/Ours/2_ab_one_stage/c37bd37d8579fcb2d726aafb517349b7.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
         <div class="small-video-container">
-            <div class="folder-name">Row5</div>
+            <div class="folder-name">Abl5</div>
             <video controls>
                 <source src="samples/Ours/5_ab_cls_sim/c37bd37d8579fcb2d726aafb517349b7.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
         <div class="small-video-container">
-            <div class="folder-name">Row6</div>
+            <div class="folder-name">Abl6</div>
             <video controls>
                 <source src="samples/Ours/6_ab_musicongen_no_initial/c37bd37d8579fcb2d726aafb517349b7.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
         <div class="small-video-container">
-            <div class="folder-name">Row7</div>
+            <div class="folder-name">Abl7</div>
             <video controls>
                 <source src="samples/Ours/3_ab_musicongen/c37bd37d8579fcb2d726aafb517349b7.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
         <div class="small-video-container">
-            <div class="folder-name">Row8</div>
+            <div class="folder-name">Ours</div>
             <video controls>
                 <source src="samples/Ours/c37bd37d8579fcb2d726aafb517349b7.mp4" type="video/mp4">
                 Your browser does not support the video tag.
@@ -626,6 +852,26 @@
     </div>
 </div>
 
+<div id="long-videos" class="section-title">4. Bad Cases</div>
+<div class="video-row">
+    <div class="folder-name" style="color: rgb(110, 208, 243); font-size: 18px; text-align: left;">The following videos show notable content shifts at 11 seconds (from creative subway scene to vast sky) and 4 seconds (from majestic landscape to friends playing), respectively, but the music style remains unchanged.</div>
+</div>
+<div class="video-group">
+    <div class="video-row centered-video-row">
+        <div class="middle-video-container" style="align-items: bottom; display: flex;">
+            <video controls>
+                <source src="./samples/bad_cases/24f80b2ce72bfe578bcf3cbc0d47cd12.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+            <div class="middle-video-container" style="align-items: bottom; display: flex;">
+            <video controls>
+                <source src="./samples/bad_cases/137401705a9ca501cd3c36f2259dd06a.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
