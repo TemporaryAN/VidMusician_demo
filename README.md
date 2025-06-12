@@ -1,2 +1,2 @@
 # Results of VidMusician
-This page is divided into six sections: Comparison with Other Methods, Additional Examples of Our Method, Results of Our Method on AI-Generated Videos, Result of Our Method on Long Videos Using a Sliding Window, Ablation Study and Bad Cases.
+This page is divided into six sections: Comparison with Other Methods, Additional Examples of Our Method, Results of Our Method on AI-Generated Videos, Result of Our Method on Long Videos Using a Sliding Window, Ablation Study and Limitations.
